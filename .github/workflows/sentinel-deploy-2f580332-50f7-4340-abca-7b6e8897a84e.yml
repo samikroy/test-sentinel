@@ -48,7 +48,7 @@ jobs:
       with:
         script: |
           Install-Module SentinelARConverter -Force
-          $folderPath = ${System.DefaultWorkingDirectory}
+          $folderPath = ".\"
           $yamlFileNames = Get-ChildItem -Path $folderPath -Filter "*.yaml" -recurse | % { $_.FullName }
           $yamlFileNames
           foreach ($item in $yamlFileNames) {
@@ -60,7 +60,7 @@ jobs:
       uses: Amadevus/pwsh-script@v2
       with:
         script: |
-          $repositoryPath = "${System.DefaultWorkingDirectory}"
+          $repositoryPath = ".\"
           Write-Host "Repository Path: $repositoryPath"
           Move-Item -Path $(System.DefaultWorkingDirectory)\*.json -Destination $repositoryPath
           Get-ChildItem -Path $repositoryPath
