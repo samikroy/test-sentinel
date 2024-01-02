@@ -62,7 +62,7 @@ jobs:
         script: |
           $repositoryPath = ".\"
           Write-Host "Repository Path: $repositoryPath"
-          Move-Item -Path $(System.DefaultWorkingDirectory)\*.json -Destination $repositoryPath
+          Move-Item -Path .\*.json -Destination $repositoryPath
           Get-ChildItem -Path $repositoryPath
           cd "$repositoryPath\s"
           git checkout -b main
