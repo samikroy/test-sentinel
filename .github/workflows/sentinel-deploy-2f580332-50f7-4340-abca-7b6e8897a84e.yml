@@ -44,9 +44,9 @@ jobs:
     - name: Install and Convert
       continue-on-error: true
       id: install-ps
-      uses: azure/powershell@v1
+      uses: Amadevus/pwsh-script@v2
       with:
-        inlineScript: |
+        script: |
           Install-Module SentinelARConverter -Force
           $folderPath = ${System.DefaultWorkingDirectory}
           $yamlFileNames = Get-ChildItem -Path $folderPath -Filter "*.yaml" -recurse | % { $_.FullName }
@@ -57,9 +57,9 @@ jobs:
     - name: Update Repo
       continue-on-error: true
       id: git-update
-      uses: azure/powershell@v1
+      uses: Amadevus/pwsh-script@v2
       with:
-        inlineScript: |
+        script: |
           $repositoryPath = "$(Pipeline.Workspace)"
           Write-Host "Repository Path: $repositoryPath"
           Move-Item -Path $(System.DefaultWorkingDirectory)\*.json -Destination $repositoryPath
