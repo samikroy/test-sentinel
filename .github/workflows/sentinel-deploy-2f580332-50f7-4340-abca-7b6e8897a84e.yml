@@ -26,7 +26,7 @@ jobs:
       workspaceId: 'bb5c46aa-8d66-43e8-b73f-351921994c3b'
       directory: '${{ github.workspace }}'
       cloudEnv: 'AzureCloud'
-      creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_2f58033250f74340abca7b6e8897a84e }}
+      creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
       contentTypes: 'Workbook'
       branch: 'main'
       sourceControlId: '2f580332-50f7-4340-abca-7b6e8897a84e'
@@ -41,7 +41,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_2f58033250f74340abca7b6e8897a84e }}
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 1 failed
@@ -54,7 +54,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login1.outcome=='failure' }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_2f58033250f74340abca7b6e8897a84e }}
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
         enable-AzPSSession: true
 
     - name: Wait 30 seconds if login attempt 2 failed
@@ -67,7 +67,7 @@ jobs:
       uses: azure/login@v1
       if: ${{ env.cloudEnv == 'AzureCloud' && steps.login2.outcome=='failure'  }}
       with:
-        creds: ${{ secrets.AZURE_SENTINEL_CREDENTIALS_2f58033250f74340abca7b6e8897a84e }}
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
         enable-AzPSSession: true
 
     - name: Checkout
