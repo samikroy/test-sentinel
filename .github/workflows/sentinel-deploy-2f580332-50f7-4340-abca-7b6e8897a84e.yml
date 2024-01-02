@@ -60,7 +60,7 @@ jobs:
       uses: Amadevus/pwsh-script@v2
       with:
         script: |
-          $repositoryPath = "$(Pipeline.Workspace)"
+          $repositoryPath = "${System.DefaultWorkingDirectory}"
           Write-Host "Repository Path: $repositoryPath"
           Move-Item -Path $(System.DefaultWorkingDirectory)\*.json -Destination $repositoryPath
           Get-ChildItem -Path $repositoryPath
