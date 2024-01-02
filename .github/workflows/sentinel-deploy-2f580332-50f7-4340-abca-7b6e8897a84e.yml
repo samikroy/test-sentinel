@@ -64,7 +64,7 @@ jobs:
           Write-Host "Repository Path: $repositoryPath"
           Move-Item -Path .\*.json -Destination $repositoryPath
           Get-ChildItem -Path $repositoryPath
-          cd "$repositoryPath\s"
+          cd "$repositoryPath\"
           git checkout -b main
           git config --global user.email "samik.n.roy@gmail.com"
           git config --global user.name "Samik Roy"
