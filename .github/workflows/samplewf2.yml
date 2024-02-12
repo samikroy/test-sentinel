@@ -13,6 +13,7 @@ jobs:
         version: [10, 12, 14] # Defining versions (three Node.js versions)
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v3
       - uses: ./main/.github/workflows/samplewf1.yml
         
     
