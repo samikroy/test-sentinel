@@ -9,14 +9,20 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest] # Defining Ubuntu and Windows OS
-        version: [10, 12, 14] # Defining versions (three Node.js versions)
+        fruit: [apple, banana]
+        include:
+          - fruit: apple
+            shape: circle
+            animal: cat
+          - fruit: banana
+            shape: square
+            animal: dog
+            
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - name: Run a one-line script
-        run: ls
-      - uses : ./.github/workflows/samplewf1.yml
+      - name: Fruit - ${{ matrix.fruit }} and shape -  ${{ matrix.shape }} and  animal ${{ matrix.animal }}
+      
 
         
     
