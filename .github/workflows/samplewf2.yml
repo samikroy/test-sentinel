@@ -18,7 +18,7 @@ jobs:
             shape: square
             animal: dog
             
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Fruit - ${{ matrix.fruit }} and shape -  ${{ matrix.shape }} and  animal ${{ matrix.animal }}
