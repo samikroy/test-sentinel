@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Fruit - ${{ matrix.fruit }} and shape -  ${{ matrix.shape }} and  animal ${{ matrix.animal }}
+      - run: Fruit - ${{ matrix.fruit }} and shape -  ${{ matrix.shape }} and  animal ${{ matrix.animal }}
       
 
         
