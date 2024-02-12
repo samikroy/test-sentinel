@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Sample Matrix
+
+on:
+  workflow_dispatch:
+# The trigger to which the workflow will run 
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest] # Defining Ubuntu and Windows OS
+        version: [10, 12, 14] # Defining versions (three Node.js versions)
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          run: echo ${{ matrix.version }}
+    
