@@ -9,13 +9,11 @@ on:
       matrix_input:
       description: ''
       required: true
-      type: string
-
-        
+      type: string      
 jobs:
   example_matrix:
     strategy:
-      matrix: ${{fromJson(inputs.matrix_input)}}
+      matrix: ${{inputs.matrix_input}}
                   
     runs-on: ubuntu-latest
     steps:
