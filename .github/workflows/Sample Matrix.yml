@@ -5,20 +5,26 @@ on:
   
   workflow_dispatch:
     inputs:
-      users:
-      description: ''
-      required: true
-      type: string
+      matrix_input:
+        description: ''
+        required: true
+        type: string
+  
       
 jobs:
   example_matrix:
     strategy:
-      matrix: ${{inputs.users}}
+      matrix: 
+        include:
+        - project: foo
+          config: Debug
+        - project: bar
+          config: Release
                   
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        run: echo ${{ matrix.project }} ${{ matrix.config }}
+      - run: echo ${{ matrix.project }} ${{ matrix.config }}
       
       
 
