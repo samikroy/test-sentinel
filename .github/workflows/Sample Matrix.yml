@@ -2,17 +2,18 @@
 name: Sample Matrix
 
 on:
+  
   workflow_dispatch:
-# The trigger to which the workflow will run 
     inputs:
-      matrix_input:
+      users:
       description: ''
       required: true
-      type: string      
+      type: string
+      
 jobs:
   example_matrix:
     strategy:
-      matrix: ${{inputs.matrix_input}}
+      matrix: ${{inputs.users}}
                   
     runs-on: ubuntu-latest
     steps:
