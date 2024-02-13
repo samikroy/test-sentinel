@@ -8,18 +8,13 @@ on:
       matrix_input:
         description: ''
         required: true
-        type: string
+        type: object
   
       
 jobs:
   example_matrix:
     strategy:
-      matrix: 
-        include:
-        - project: foo
-          config: Debug
-        - project: bar
-          config: Release
+      matrix: ${{ fromJSON(inputs.matrix_input) }}
                   
     runs-on: ubuntu-latest
     steps:
