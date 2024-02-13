@@ -5,23 +5,23 @@ name: Sample Matrix
 on:
   workflow_dispatch:
 # The trigger to which the workflow will run 
+    inputs:
+      matrix_input:
+      description: ''
+      required: true
+      type: string
+
+        
 jobs:
   example_matrix:
     strategy:
-      matrix:
-        fruit: [apple, banana]
-        include:
-          - fruit: apple
-            shape: circle
-            animal: cat
-          - fruit: banana
-            shape: square
-            animal: dog
-            
+      matrix: ${{fromJson(inputs.matrix_input)}}
+                  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo Fruit - ${{ matrix.fruit }} and shape -  ${{ matrix.shape }} and  animal ${{ matrix.animal }}
+      - run: echo ${{ matrix.project }}
+      - run: echo ${{ matrix.config }}
       
 
         
