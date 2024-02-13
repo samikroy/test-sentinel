@@ -17,9 +17,13 @@ jobs:
       matrix: ${{ fromJSON(inputs.matrix_input) }}
                   
     runs-on: ubuntu-latest
+    env:
+      project: ${{ matrix.project }}
+      config: ${{  matrix.config }}
     steps:
       - uses: actions/checkout@v3
       - run: echo ${{ matrix.project }} ${{ matrix.config }}
+      - run: echo ${{ env.project }} ${{ env.config }}
       
       
 
