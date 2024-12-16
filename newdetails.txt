@@ -1,0 +1,45 @@
+1. Microsoft Services
+Microsoft Defender XDR: Connects data from Office 365, Microsoft Entra ID, Microsoft Defender for Identity, and Microsoft Defender for Cloud Apps.
+
+Azure Active Directory (AAD): Logs sign-in logs, audit logs, and directory activities.
+
+Microsoft 365: Connects data from Exchange, SharePoint, and OneDrive.
+
+2. Non-Microsoft Products
+Syslog: Connects data from Unix and Linux systems.
+
+Common Event Format (CEF): Connects data from various security products like Cisco, Palo Alto Networks, and Splunk.
+
+REST APIs: Connects data from custom applications or third-party services.
+
+3. Agent-Based Integration
+Windows Event Logs: Collects logs from Windows operating systems.
+
+Linux Logs: Collects logs from Linux distributions.
+
+Security Information and Event Management (SIEM) Systems: Integrates with existing SIEM solutions to ingest data.
+
+4. Service-to-Service Integration
+Azure Monitor Logs: Integrates logs from Azure resources.
+
+Microsoft Defender for IoT: Connects data from IoT devices.
+
+5. Custom Connectors
+Codeless Connector Platform: Allows creating custom connectors using APIs provided by security solutions.
+
+Log Ingestion API for Azure Monitor: Integrates logs using Azure Functions or Logic Apps.
+
+6. Data Sources
+Network Devices: Logs from firewalls, routers, and switches.
+
+Application Logs: Logs from web servers, databases, and applications.
+
+Identity Logs: Logs from identity providers and authentication systems.
+
+7. Content Hub
+Microsoft Sentinel Content Hub: Provides pre-built solutions with data connectors, workbooks, analytics rules, playbooks, and more.
+
+8. Permissions and Roles
+Azure Role-Based Access Control (RBAC): Assign roles to manage access to Microsoft Sentinel data.
+
+Resource Groups: Use dedicated resource groups for managing permissions efficiently.
